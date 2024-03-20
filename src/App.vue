@@ -1,60 +1,11 @@
 <template>
-  <div class="wrapper-app">
-    <h2>News</h2>
-    <input
-      type="text"
-      placeholder="Search news"
-      class="input"
-      v-on:input="getPostValue(searchValue)"
-      v-model="searchValue"
-    />
-    <br /><postList />
+  <div class="wrapper">
+    <RouterView />
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
-import postList from "./components/postList.vue";
-import { useNewsStore } from "./stores/newsStore";
-import { useFilterStore } from "./stores/filterStore";
-
-export default {
-  setup() {
-    const newsStore = useNewsStore();
-    const filterStore = useFilterStore();
-    const searchValue = ref("");
-
-    const getPostValue = (value) => {
-      filterStore.getPostValue(value); // вызываем метод через скобки
-    };
-
-    return {
-      newsStore,
-      searchValue,
-      filterStore,
-      getPostValue,
-    };
-  },
-  components: {
-    postList,
-  },
-};
+import { RouterView } from "vue-router";
 </script>
 
-<style scoped>
-.wrapper-app {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.input {
-  width: 300px;
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-}
-</style>
+<style scoped></style>

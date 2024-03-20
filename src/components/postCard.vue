@@ -1,16 +1,18 @@
 <template>
-  <router-link class="postCard" to="/postid">
+  <router-link
+    class="postCard"
+    :to="{
+      name: 'moreinfo',
+      params: { id },
+    }"
+  >
     <img :src="post.urlToImage" :alt="post.author" />
     <p>{{ post.title }}</p>
     <p>{{ post.author }}</p>
   </router-link>
-  <routerView />
 </template>
 <script>
 export default {
-  data() {
-    return {};
-  },
   props: {
     post: {
       type: Object,
