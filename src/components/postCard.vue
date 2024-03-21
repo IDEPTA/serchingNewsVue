@@ -6,9 +6,9 @@
       params: { id },
     }"
   >
-    <img :src="post.urlToImage" :alt="post.author" />
+    <img :src="post.image" :alt="post.author" />
     <p>{{ post.title }}</p>
-    <p>{{ post.author }}</p>
+    <p>Source: {{ post.source.name }}</p>
   </router-link>
 </template>
 <script>

@@ -1,10 +1,10 @@
 <template>
   <div class="post-wrapper">
     <h2>{{ moreInfoData.title }}</h2>
-    <img :src="moreInfoData.urlToImage" :alt="moreInfoData.author" />
-    <p>Author: {{ moreInfoData.author }}</p>
+    <img :src="moreInfoData.image" :alt="moreInfoData.source.name" />
     <p>Published: {{ moreInfoData.publishedAt }}</p>
     <p>{{ moreInfoData.content }}</p>
+    <p>Source: {{ moreInfoData.source.name }}</p>
   </div>
 </template>
 <script>
@@ -31,7 +31,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .post-wrapper {
   margin: 30px auto;
   padding: 20px;
@@ -44,5 +44,14 @@ export default {
   width: 100%;
   border-radius: 10px;
   margin: 30px 0px;
+}
+
+@media (max-width: 800px) {
+  .post-wrapper {
+    width: 95%;
+    padding: 10px;
+    margin: 10px auto;
+    font-size: 18px;
+  }
 }
 </style>
